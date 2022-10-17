@@ -1,1 +1,1 @@
-<?php include_once("https://projectbaki.herokuapp.com/home.html"); ?>
+<?php include_once("index.html"); ?>
