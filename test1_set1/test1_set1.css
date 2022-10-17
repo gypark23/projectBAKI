@@ -1,17 +1,24 @@
-body {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+/* * {
+  border: thin red solid;
+} */
 
 .items {
   display: flex;
+  flex-direction: row;
   padding-top: 20px;
-  gap: 50px;
+  gap: 10vw;
   justify-content: center;
+  width:100%;
+}
+
+.images {
+  max-width:100%;
 }
 
 .instructions {
   text-align: center;
+  /* font-size:10vw; */
+  width:100%;
 }
 
   
