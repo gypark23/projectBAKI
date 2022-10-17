@@ -1,1 +1,1 @@
-header("Location: https://projectbaki.herokuapp.com/index.html");
+<?php include_once("https://projectbaki.herokuapp.com/home.html"); ?>
