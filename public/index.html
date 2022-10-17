@@ -1,0 +1,57 @@
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Eyes-Free Interactions</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+    <link rel="stylesheet" href="index.css">
+
+    
+  </head>
+
+<body class="background">
+  <div class="container-fluid">
+    <div class="center">
+      <!-- Game title -->
+      <h1>Welcome to Eyes-Free Interactions Lab!</h1>
+
+
+
+      <img src="laugh.png">
+
+
+      <p id='helper-text'>Instructions:</p>
+
+      <form id="guessing-form">
+        <div>
+          <!-- Number input box -->
+          <input class='hide-me' id="number-input" type="text" placeholder="Enter a guess" autocomplete="off">
+          <br>
+          <!-- Hint button -->
+          <button id="hint-btn" class="btn btn-default hide-me" type="button">Give a hint</button>
+          <!-- Submit button -->
+          <button onclick = "startPattern()" id='submit-btn' class="btn btn-lg btn-primary hide-me" type="button">Submit</button>
+          <!-- Start Over button -->
+          <button id='startover-btn' class="btn btn-default" type="button">Start Over!</button>
+        </div>
+      </form>
+      <div id='prev-guesses' class='hide-me'></div>
+      <!-- Remaining guesses -->
+      <div class='hide-me'><p>Remaining Guesses:</p><h4 id="guesses-remaining">5</h4></div>
+      <div id="prize-image"></div>
+    </div>
+  </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
