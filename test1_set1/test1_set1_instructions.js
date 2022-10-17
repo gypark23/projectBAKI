@@ -1,13 +1,13 @@
 function like() {
-    navigator.vibrate([80]);
+    navigator.vibrate([150]);
     buttonPressed = true;
 }
 function love() {
-    navigator.vibrate([80, 50, 80]);
+    navigator.vibrate([150, 100, 150]);
     buttonPressed = true;
 }
 function laugh() {
-    navigator.vibrate([80,50,80,50,80,50,80]);
+    navigator.vibrate([150,100,150,100,150,100,150]);
     buttonPressed = true;
 }
 function care() {
