@@ -71,7 +71,7 @@ function executeTest() {
     }
     else {
         alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to end the experiment!\n\nFor BAKI: Option2(set2->set1) Test1_set2 ${correct}\nRedirecting to test1_set1`);
-        window.location = "../test2_set2/test2_set2_instructions.html";
+        window.location = "/test1_vibration/option2/test1_set1/test1_set1_instructions.html";
     }
 }
 
