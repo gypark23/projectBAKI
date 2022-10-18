@@ -11,14 +11,14 @@ function laugh() {
     buttonPressed = true;
 }
 function care() {
-    navigator.vibrate([80,50,80,50,200]);
+    navigator.vibrate([150,100,150,100,300]);
     buttonPressed = true;
 }
 function sad() {
-    navigator.vibrate([200]);
+    navigator.vibrate([300]);
     buttonPressed = true;
 }
 function angry() {
-    navigator.vibrate([200,80,200]);
+    navigator.vibrate([300,100,300]);
     buttonPressed = true;
 }
