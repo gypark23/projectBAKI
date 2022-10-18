@@ -44,7 +44,11 @@ function test(num) {
         testNo++;
         buttonPressed = -1;
         vibrationDone = false;
-        if (testNo <= totalTest) executeTest();
+        document.getElementById("selectNow").textContent="Wait...";
+        if (testNo <= totalTest) {
+            document.getElementById("testText").textContent=`Test ${testNo} of 10: Select the correct emoticon below`;
+            executeTest();
+        }
     }
     
 }
@@ -66,6 +70,7 @@ function playVibration() {
     map[reactionNumber]();
     console.log("vibration done");
     vibrationDone = true;
+    document.getElementById("selectNow").textContent="You may select now!";
 }
 
 document.addEventListener("DOMContentLoaded", executeTest());
