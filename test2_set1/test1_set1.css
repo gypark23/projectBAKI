@@ -31,12 +31,6 @@ td, th {
   max-width:90%;
 }
 
-#selectNow {
-  text-align: center;
-  color: red;
-  
-}
-
 h1 {
   text-align: center;
   font-size:30px;
@@ -51,7 +45,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 25px;
-  padding: 10px 20px;
+  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
