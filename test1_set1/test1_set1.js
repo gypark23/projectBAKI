@@ -53,6 +53,12 @@ function test(num) {
     
 }
 
+function playVibration() {
+    map[reactionNumber]();
+    console.log("vibration done");
+    vibrationDone = true;
+    document.getElementById("selectNow").textContent="You may select now!";
+}
 function executeTest() {
     if (testNo <= totalTest) {
         //random reaction number
@@ -66,11 +72,5 @@ function executeTest() {
     }
 }
 
-function playVibration() {
-    map[reactionNumber]();
-    console.log("vibration done");
-    vibrationDone = true;
-    document.getElementById("selectNow").textContent="You may select now!";
-}
 
 document.addEventListener("DOMContentLoaded", executeTest());
