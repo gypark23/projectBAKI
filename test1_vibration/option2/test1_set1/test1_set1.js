@@ -70,8 +70,8 @@ function executeTest() {
         setTimeout(playVibration, 2000);
     }
     else {
-        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Test1_set1 ${correct}`);
-        window.location = "../test2_set2/test2_set2_instructions.html";
+        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to end the experiment!\n\nFor BAKI: Option2(set2->set1) Test1_set1 ${correct}\nTest1_vibration done`);
+        window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
     }
 }
 
