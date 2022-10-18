@@ -25,7 +25,7 @@ function angry() {
 
 const map = [like, love, laugh, care, sad, angry];
 
-const totalTest = 10;
+const totalTest = 12;
 var correct = 0;
 var reactionNumber = 0;
 var buttonPressed = -1;
@@ -45,7 +45,7 @@ function test(num) {
         buttonPressed = -1;
         vibrationDone = false;
         document.getElementById("selectNow").textContent = "Wait...";
-            document.getElementById("testText").textContent = `Test ${testNo} of 10: Select the correct emoticon below`;
+            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
             executeTest();
     }
 
@@ -70,7 +70,8 @@ function executeTest() {
         setTimeout(playVibration, 2000);
     }
     else {
-        alert(`Test done!\nPress OK to move on to the next experiment!\nFor BAKI: Test1_set1 ${correct}`);
+        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Test1_set1 ${correct}`);
+        window.location = "../test2_set2/test2_set2_instructions.html";
     }
 }
 
