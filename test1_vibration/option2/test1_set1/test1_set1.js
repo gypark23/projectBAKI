@@ -7,19 +7,19 @@ function love() {
     buttonPressed = true;
 }
 function laugh() {
-    navigator.vibrate([150, 100, 150, 100, 150, 100, 150]);
+    navigator.vibrate([300, 100, 150, 100, 300]);
     buttonPressed = true;
 }
 function care() {
-    navigator.vibrate([150, 100, 150, 100, 300]);
+    navigator.vibrate([150, 100, 150, 100, 300, 100, 300]);
     buttonPressed = true;
 }
 function sad() {
-    navigator.vibrate([300]);
+    navigator.vibrate([300, 100, 300]);
     buttonPressed = true;
 }
 function angry() {
-    navigator.vibrate([300, 100, 300]);
+    navigator.vibrate([300, 100, 300, 100, 300, 100, 300]);
     buttonPressed = true;
 }
 
