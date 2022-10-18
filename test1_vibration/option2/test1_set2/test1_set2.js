@@ -3,7 +3,7 @@ function like() {
     buttonPressed = true;
 }
 function love() {
-    navigator.vibrate([300, 100, 150, 100, 150]);
+    navigator.vibrate([150, 100, 300, 100, 150, 100, 150]);
     buttonPressed = true;
 }
 function laugh() {
