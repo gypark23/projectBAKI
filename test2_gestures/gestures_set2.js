@@ -7,10 +7,6 @@ const bottomRight = document.getElementById("bottom-right")
 
 var user_gesture = ""
 
-var hammertime = new Hammer(myElement, myOptions);
-hammertime.on('pan', function(ev) {
-	console.log(ev);
-});
 
 
 document.addEventListener("touchstart", e => {
