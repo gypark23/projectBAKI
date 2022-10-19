@@ -5,15 +5,18 @@
       <title>Vibration Set 2 Instructions</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-      <link rel="stylesheet" href="test1_set2.css">
-      <script src="test1_set2.js"></script>
-  </head>
-
-  <body>
-    <h1>
-      Set 2: Participant Instructions
-    </h1>
-
+      <link rel="stylesheet" href="test1_set2_instructions.css">
+    </head>
+    
+    <body>
+        <h1 id = "timerExplanation">Press the button below to start the timer and read the instructions</h1>
+        <button id = "timerButton" onclick = javascript:clicked()>Click Here!</button>
+        <!-- 60 seconds, 1 minute-->
+        <h1 id = "timer">1:00</h1>
+        <h1>
+            Set 2: Participant Instructions
+        </h1>
+        <script src="test1_set2_instructions.js"></script>
     <p>
       Welcome! Below you will find 6 emoticons and their respective vibration sequences. 
       You may click the 'Play' button to experience the vibration for a specific emoticon. 
@@ -63,9 +66,10 @@
         </tr>
         <tr>
             <td><img class="thumbnails" src="/assets/angry.png"></td>
-            <td>1 Long 1 Short Vibrations</td>
+            <td>1 Short + 1 Long Vibrations</td>
             <td><Button onclick = "angry()">Play</Button></td>
         </tr>
+
     </table>
 
     <div>
