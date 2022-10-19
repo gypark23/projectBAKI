@@ -143,11 +143,7 @@ function playVibration() {
     document.getElementById("selectNow").textContent = "You may tap now!";
 }
 function executeTest() {
-    if (firstRun && user_string == "") {
-        vibrationDone = true;
-        firstRun = false;
-    }
-    else if (testNo <= totalTest) {
+    if (testNo <= totalTest) {
         //random reaction number
         reactionNumber = Math.floor(Math.random() * gesture_list.length);
         random_gesture = gesture_list[reactionNumber];
