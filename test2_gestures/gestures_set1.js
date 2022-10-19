@@ -7,7 +7,7 @@ function clicked() {
     document.getElementById("timerButton").style.display = "none";
     document.getElementById("timerExplanation").style.display = "none";
     document.body.style.visibility = "visible";
-    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap the correct gesture below`;
     executeTest();
   }
 
