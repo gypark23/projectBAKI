@@ -5,20 +5,24 @@ const bottomRight = document.getElementById("bottom-right")
 
 var user_gesture = ""
 
-topLeft.addEventListener("touchstart", e => {
+topLeft.addEventListener("touchend", e => {
     e.preventDefault()
 
-    user_gesture.concat("a")
-
-    console.log(user_gesture)
+    user_gesture += "a"
+    console.log({user_gesture})
 
     // console.log("TL-Touches", e.touches.length)
     // console.log("TL-Targets", e.targetTouches.length)
     // console.log("TL-Changed", e.changedTouches.length)
 })
 
-topRight.addEventListener("touchstart", e => {
+topRight.addEventListener("touchend", e => {
     e.preventDefault()
+
+    user_gesture += ";"
+    console.log({user_gesture})
+    test(user_gesture)
+    user_gesture = ""
     // console.log("TR-Touches", e.touches.length)
     // console.log("TR-Targets", e.targetTouches.length)
     // console.log("TR-Changed", e.changedTouches.length)
@@ -26,6 +30,8 @@ topRight.addEventListener("touchstart", e => {
 
 bottomLeft.addEventListener("touchstart", e => {
     e.preventDefault()
+    user_gesture += "b"
+    console.log({user_gesture})
     // console.log("BL-Touches", e.touches.length)
     // console.log("BL-Targets", e.targetTouches.length)
     // console.log("BL-Changed", e.changedTouches.length)
@@ -33,6 +39,8 @@ bottomLeft.addEventListener("touchstart", e => {
 
 bottomRight.addEventListener("touchstart", e => {
     e.preventDefault()
+    user_gesture += "c"
+    console.log({user_gesture})
     // console.log("BR-Touches", e.touches.length)
     // console.log("BR-Targets", e.targetTouches.length)
     // console.log("BR-Changed", e.changedTouches.length)
@@ -93,22 +101,25 @@ const map = [like, love, laugh, care, sad, angry];
 
 const totalTest = 12;
 var correct = 0;
-var reactionNumber = 0;
-var buttonPressed = -1;
+var random_gesture;
+var reactionNumber;
+var user_string = "";
 var input = 0;
+var gesture_list = ['a', 'aa', 'b', 'bb', 'c', 'cc']; 
 console.log("hello");
 var testNo = 0;
 var firstRun = true;
 var vibrationDone = false;
 
-function test(num) {
-    buttonPressed = parseInt(num);
+function test(user_gesture) {
+    user_string = user_gesture;
     if (vibrationDone) {
-        if (buttonPressed == reactionNumber && testNo != 0) {
+        if (user_string == reactionNumber && testNo != 0) {
             correct++;
+            console.log("Correct")
         }
         testNo++;
-        buttonPressed = -1;
+        user_string = "";
         vibrationDone = false;
         document.getElementById("selectNow").textContent = "Wait...";
             document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
@@ -121,16 +132,17 @@ function playVibration() {
     map[reactionNumber]();
     console.log("vibration done");
     vibrationDone = true;
-    document.getElementById("selectNow").textContent = "You may select now!";
+    document.getElementById("selectNow").textContent = "You may tap now!";
 }
 function executeTest() {
-    if (firstRun && buttonPressed != -1) {
+    if (firstRun && user_string == "") {
         vibrationDone = true;
         firstRun = false;
     }
     else if (testNo <= totalTest) {
         //random reaction number
-        reactionNumber = Math.floor(Math.random() * 6);
+        reactionNumber = Math.floor(Math.random() * gesture_list.length);
+        random_gesture = gesture_list[reactionNumber];
         //wait 2 seconds to play the vibration
         console.log(`start${testNo} ${reactionNumber}`);
         setTimeout(playVibration, 2000);
