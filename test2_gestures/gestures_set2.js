@@ -27,7 +27,7 @@ function clicked() {
   document.getElementById("timerButton").style.display = "none";
   document.getElementById("timerExplanation").style.display = "none";
   document.body.style.visibility = "visible";
-  document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+  document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Swipe to find the correct emoticon below`;
   executeTest();
 }
 
@@ -250,7 +250,7 @@ function test() {
         buttonPressed = -1;
         vibrationDone = false;
         document.getElementById("selectNow").textContent = "Wait...";
-            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
+            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Swipe to find the correct emoticon below`;
             executeTest();
     }
 
