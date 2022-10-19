@@ -3,6 +3,14 @@ const topRight = document.getElementById("top-right")
 const bottomLeft = document.getElementById("bottom-left")
 const bottomRight = document.getElementById("bottom-right")
 
+function clicked() {
+    document.getElementById("timerButton").style.display = "none";
+    document.getElementById("timerExplanation").style.display = "none";
+    document.body.style.visibility = "visible";
+    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+    executeTest();
+  }
+
 var user_gesture = ""
 
 topLeft.addEventListener("touchstart", e => {
@@ -107,7 +115,7 @@ var user_string = "";
 var input = 0;
 var gesture_list = ['a;', 'aa;', 'b;', 'bb;', 'c;', 'cc;']; 
 console.log("hello");
-var testNo = 0;
+var testNo = 1;
 var firstRun = true;
 var vibrationDone = false;
 
@@ -152,6 +160,3 @@ function executeTest() {
         window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
     }
 }
-
-
-document.addEventListener("DOMContentLoaded", executeTest());
