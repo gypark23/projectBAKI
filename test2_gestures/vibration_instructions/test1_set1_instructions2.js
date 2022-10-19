@@ -47,6 +47,6 @@ function updateCounter() {
   time--;
 
   if(time < 0) {
-    window.location = "/test1_vibration/option1/test1_set1/test1_set1.html";
-  }
+    window.location = "/test2_gestures/test2_set2/gestures_set2_instructions.html";
+}
 }
