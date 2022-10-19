@@ -164,11 +164,13 @@ let startPointY = 0;
 let endPointY = 0;
 
 slide.addEventListener("mousedown", (e) => {
+    e.preventDefault()
   startPoint = e.pageX;
   startPointY = e.pageY;
 });
 
 slide.addEventListener("mouseup", (e) => {
+    e.preventDefault()
   endPoint = e.pageX;
   endPointY = e.pageY;
 
@@ -200,12 +202,14 @@ slide.addEventListener("mouseup", (e) => {
 
 //mobile touch event
 slide.addEventListener("touchstart", (e) => {
-  startPoint = e.touches[0].pageX;
-  startPointY = e.touches[0].pageY;
+    e.preventDefault()
+    startPoint = e.touches[0].pageX;
+    startPointY = e.touches[0].pageY;
 });
 slide.addEventListener("touchend", (e) => {
-  endPoint = e.changedTouches[0].pageX;
-  endPointY = e.changedTouches[0].pageY;
+    e.preventDefault()
+    endPoint = e.changedTouches[0].pageX;
+    endPointY = e.changedTouches[0].pageY;
   
   
   
