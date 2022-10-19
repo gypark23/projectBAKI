@@ -116,7 +116,7 @@ var user_string = "";
 var input = 0;
 var gesture_list = ['a;', 'aa;', 'b;', 'bb;', 'c;', 'cc;']; 
 console.log("hello");
-var testNo = 0;
+var testNo = 1;
 var firstRun = true;
 var vibrationDone = false;
 
