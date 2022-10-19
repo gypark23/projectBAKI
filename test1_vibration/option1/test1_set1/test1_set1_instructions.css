@@ -11,6 +11,8 @@ body {
   justify-content: right;
   text-align: right;
   color: red;
+  margin-top: 0;
+  margin-bottom: -10%;
 }
 #timerButton {
   z-index: 1;
