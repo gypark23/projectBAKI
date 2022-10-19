@@ -42,7 +42,8 @@
     margin: auto;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;

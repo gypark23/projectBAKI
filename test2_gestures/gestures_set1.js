@@ -3,32 +3,39 @@ const topRight = document.getElementById("top-right")
 const bottomLeft = document.getElementById("bottom-left")
 const bottomRight = document.getElementById("bottom-right")
 
+var user_gesture = ""
+
 topLeft.addEventListener("touchstart", e => {
     e.preventDefault()
-    console.log("TL-Touches", e.touches.length)
-    console.log("TL-Targets", e.targetTouches.length)
-    console.log("TL-Changed", e.changedTouches.length)
+
+    user_gesture.concat("a")
+
+    console.log(user_gesture)
+
+    // console.log("TL-Touches", e.touches.length)
+    // console.log("TL-Targets", e.targetTouches.length)
+    // console.log("TL-Changed", e.changedTouches.length)
 })
 
 topRight.addEventListener("touchstart", e => {
     e.preventDefault()
-    console.log("TR-Touches", e.touches.length)
-    console.log("TR-Targets", e.targetTouches.length)
-    console.log("TR-Changed", e.changedTouches.length)
+    // console.log("TR-Touches", e.touches.length)
+    // console.log("TR-Targets", e.targetTouches.length)
+    // console.log("TR-Changed", e.changedTouches.length)
 })
 
 bottomLeft.addEventListener("touchstart", e => {
     e.preventDefault()
-    console.log("BL-Touches", e.touches.length)
-    console.log("BL-Targets", e.targetTouches.length)
-    console.log("BL-Changed", e.changedTouches.length)
+    // console.log("BL-Touches", e.touches.length)
+    // console.log("BL-Targets", e.targetTouches.length)
+    // console.log("BL-Changed", e.changedTouches.length)
 })
 
 bottomRight.addEventListener("touchstart", e => {
     e.preventDefault()
-    console.log("BR-Touches", e.touches.length)
-    console.log("BR-Targets", e.targetTouches.length)
-    console.log("BR-Changed", e.changedTouches.length)
+    // console.log("BR-Touches", e.touches.length)
+    // console.log("BR-Targets", e.targetTouches.length)
+    // console.log("BR-Changed", e.changedTouches.length)
 })
 
 document.addEventListener("touchstart", e => {
