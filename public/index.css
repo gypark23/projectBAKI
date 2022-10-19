@@ -52,6 +52,22 @@
     font-size: 16px;
   }
 
+  .button_2 {
+      background-color: blue; /* Green */
+      border: none;
+      color: white;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+
   #button_wrapper {
     display: flex;
     gap: 30px;
