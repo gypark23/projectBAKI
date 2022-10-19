@@ -1,27 +1,28 @@
 function like() {
-    navigator.vibrate([150]);
+    navigator.vibrate([300]);
     buttonPressed = true;
 }
 function love() {
-    navigator.vibrate([150, 100, 150]);
+    navigator.vibrate([150, 100, 300, 100, 150, 100, 150]);
     buttonPressed = true;
 }
 function laugh() {
-    navigator.vibrate([300, 100, 150, 100, 300]);
+    navigator.vibrate([150, 100, 150, 100, 150, 100, 150]);
     buttonPressed = true;
 }
 function care() {
-    navigator.vibrate([150, 100, 150, 100, 300, 100, 300]);
+    navigator.vibrate([300, 100, 150, 100, 300, 100, 150]);
     buttonPressed = true;
 }
 function sad() {
-    navigator.vibrate([300, 100, 300]);
+    navigator.vibrate([150, 100, 150, 100, 150]);
     buttonPressed = true;
 }
 function angry() {
-    navigator.vibrate([300, 100, 300, 100, 300, 100, 300]);
+    navigator.vibrate([150, 100, 300]);
     buttonPressed = true;
 }
+
 
 //document.getElementById("timerButton").style.visibility = "visible";
 
@@ -47,6 +48,6 @@ function updateCounter() {
   time--;
 
   if(time < 0) {
-    window.location = "/test1_vibration/option2/test1_set1/test1_set1.html";
+    window.location = "test1_vibration/test1_set2/test1_set2.html";
   }
 }
