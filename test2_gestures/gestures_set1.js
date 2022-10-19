@@ -7,7 +7,7 @@ function clicked() {
     document.getElementById("timerButton").style.display = "none";
     document.getElementById("timerExplanation").style.display = "none";
     document.body.style.visibility = "visible";
-    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap out the correct gesture below`;
     executeTest();
   }
 
@@ -35,6 +35,7 @@ topRight.addEventListener("touchstart", e => {
     // console.log("TR-Targets", e.targetTouches.length)
     // console.log("TR-Changed", e.changedTouches.length)
 })
+
 
 bottomLeft.addEventListener("touchstart", e => {
     e.preventDefault()
@@ -115,7 +116,7 @@ var user_string = "";
 var input = 0;
 var gesture_list = ['a;', 'aa;', 'b;', 'bb;', 'c;', 'cc;']; 
 console.log("hello");
-var testNo = 1;
+var testNo = 0;
 var firstRun = true;
 var vibrationDone = false;
 
@@ -130,7 +131,7 @@ function test(user_gesture) {
         user_string = "";
         vibrationDone = false;
         document.getElementById("selectNow").textContent = "Wait...";
-            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap the correct gesture below`;
+            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap out the correct gesture below`;
             executeTest();
     }
 
@@ -143,7 +144,11 @@ function playVibration() {
     document.getElementById("selectNow").textContent = "You may tap now!";
 }
 function executeTest() {
-    if (testNo <= totalTest) {
+    if (firstRun && user_string == "") {
+        vibrationDone = true;
+        firstRun = false;
+    }
+    else if (testNo <= totalTest) {
         //random reaction number
         reactionNumber = Math.floor(Math.random() * gesture_list.length);
         random_gesture = gesture_list[reactionNumber];
@@ -156,3 +161,6 @@ function executeTest() {
         window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", executeTest());
