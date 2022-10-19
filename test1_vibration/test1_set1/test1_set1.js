@@ -1,25 +1,25 @@
 function like() {
-    navigator.vibrate([300]);
+    navigator.vibrate([150]);
     buttonPressed = true;
 }
 function love() {
-    navigator.vibrate([150, 100, 300, 100, 150, 100, 150]);
+    navigator.vibrate([150, 100, 150]);
     buttonPressed = true;
 }
 function laugh() {
-    navigator.vibrate([150, 100, 150, 100, 150, 100, 150]);
+    navigator.vibrate([300, 100, 150, 100, 300]);
     buttonPressed = true;
 }
 function care() {
-    navigator.vibrate([300, 100, 150, 100, 300, 100, 150]);
+    navigator.vibrate([150, 100, 150, 100, 300, 100, 300]);
     buttonPressed = true;
 }
 function sad() {
-    navigator.vibrate([150, 100, 150, 100, 150]);
+    navigator.vibrate([300, 100, 300]);
     buttonPressed = true;
 }
 function angry() {
-    navigator.vibrate([150, 100, 300]);
+    navigator.vibrate([300, 100, 300, 100, 300, 100, 300]);
     buttonPressed = true;
 }
 
@@ -48,7 +48,6 @@ function test(num) {
             document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
             executeTest();
     }
-
 }
 
 function playVibration() {
@@ -70,8 +69,8 @@ function executeTest() {
         setTimeout(playVibration, 2000);
     }
     else {
-        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option2(set2->set1) Test1_set2 ${correct}\nRedirecting to set1`);
-        window.location = "/test1_vibration/option2/test1_set1/test1_set1_instructions.html";
+        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option1(set1->set2) Test1_set1 ${correct}\nRedirecting to set2`);
+        window.location = "public/index.html";
     }
 }
 
