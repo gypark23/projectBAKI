@@ -105,7 +105,7 @@ var random_gesture;
 var reactionNumber;
 var user_string = "";
 var input = 0;
-var gesture_list = ['a', 'aa', 'b', 'bb', 'c', 'cc']; 
+var gesture_list = ['a;', 'aa;', 'b;', 'bb;', 'c;', 'cc;']; 
 console.log("hello");
 var testNo = 0;
 var firstRun = true;
@@ -114,7 +114,7 @@ var vibrationDone = false;
 function test(user_gesture) {
     user_string = user_gesture;
     if (vibrationDone) {
-        if (user_string == reactionNumber && testNo != 0) {
+        if (user_string == gesture_list[reactionNumber] && testNo != 0) {
             correct++;
             console.log("Correct")
         }
@@ -122,7 +122,7 @@ function test(user_gesture) {
         user_string = "";
         vibrationDone = false;
         document.getElementById("selectNow").textContent = "Wait...";
-            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
+            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap the correct gesture below`;
             executeTest();
     }
 

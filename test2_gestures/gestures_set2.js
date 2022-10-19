@@ -5,18 +5,55 @@ const bottomRight = document.getElementById("bottom-right")
 
 var user_gesture = ""
 
-topLeft.addEventListener("touchend", e => {
-    e.preventDefault()
 
-    // user_gesture += "a"
-    // console.log({user_gesture})
+document.addEventListener("touchstart", e => {
+    ;[...e.changedTouches].forEach(touch => {
+        const dot = document.createElement("div")
+        dot.classList.add("dot")
+        dot.style.top = `${touch.pageY}px`
+        dot.style.left = `${touch.pageX}px`
 
-    // console.log("TL-Touches", e.touches.length)
-    // console.log("TL-Targets", e.targetTouches.length)
-    // console.log("TL-Changed", e.changedTouches.length)
+        // console.log("x1:" + dot.style.left)
+        // console.log("y1:" + dot.style.top)
+
+        dot.id = touch.identifier
+        document.body.append(dot)
+    })
 })
 
-topRight.addEventListener("touchend", e => {
+document.addEventListener("touchmove", e => {
+    ;[...e.changedTouches].forEach(touch => {
+        const dot = document.getElementById(touch.identifier)
+        dot.style.top = `${touch.pageY}px`
+        dot.style.left = `${touch.pageX}px`
+    })
+})
+
+document.addEventListener("touchend", e => {
+    ;[...e.changedTouches].forEach(touch => {
+        const dot = document.getElementById(touch.identifier)
+
+        // console.log("x2:" + dot.style.left)
+        // console.log("y2:" + dot.style.top)
+
+        dot.remove()
+    })
+})
+
+
+topLeft.addEventListener("touchstart", e => {
+    e.preventDefault()
+    
+
+    // user_gesture += ";"
+    // console.log({user_gesture})
+    // user_gesture = ""
+    // console.log("TR-Touches", e.touches.length)
+    // console.log("TR-Targets", e.targetTouches.length)
+    // console.log("TR-Changed", e.changedTouches.length)
+})
+
+topRight.addEventListener("touchstart", e => {
     e.preventDefault()
 
     // user_gesture += ";"
@@ -45,41 +82,6 @@ bottomRight.addEventListener("touchstart", e => {
     // console.log("BR-Changed", e.changedTouches.length)
 })
 
-document.addEventListener("touchstart", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.createElement("div")
-        dot.classList.add("dot")
-        dot.style.top = `${touch.pageY}px`
-        dot.style.left = `${touch.pageX}px`
-
-        console.log("x1:" + dot.style.left)
-        console.log("y1:" + dot.style.top)
-
-        dot.id = touch.identifier
-        document.body.append(dot)
-
-
-    })
-})
-
-document.addEventListener("touchmove", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.getElementById(touch.identifier)
-        dot.style.top = `${touch.pageY}px`
-        dot.style.left = `${touch.pageX}px`
-    })
-})
-
-document.addEventListener("touchend", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.getElementById(touch.identifier)
-
-        console.log("x2:" + dot.style.left)
-        console.log("y2:" + dot.style.top)
-
-        dot.remove()
-    })
-})
 
 // function like() {
 //     navigator.vibrate([150]);

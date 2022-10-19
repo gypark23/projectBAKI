@@ -48,7 +48,6 @@ function test(num) {
             document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
             executeTest();
     }
-
 }
 
 function playVibration() {
