@@ -9,16 +9,23 @@
   </head>
 
   <body>
-    <h1 id = "timerExplanation">Press the button below to start the experiment</h1>
+    <h1 id = "timerExplanation">Press the button below to start the timer and read the instructions</h1>
     <button id = "timerButton" onclick = javascript:clicked()>Click Here!</button>
-    <h1 id = testText>
-      Tap 'Enter' to begin the test
+    <!-- 60 seconds, 1 minute-->
+    <h1 id = "timer">1:00</h1>
+    <h1>
+      Set 1: Participant Instructions
     </h1>
-    <p id = selectNow>Wait...</p>
+
+    <p>
+      Each emoticon is associated with a corner of the screen and a sequence of taps in that corner. 
+    </p>
+
+    <!-- <p id = selectNow>Wait...</p> -->
     <hr>
 
     <div id="parent">
-        <div id="top-left" class="square">
+        <div id="top-left" class="square3">
           <div class="text-center">
             <img src="/assets/like.png" class="items">
             1 Tap
@@ -30,12 +37,12 @@
           </div>
         </div>
 
-        <div id="top-right" class="square">
+        <div id="top-right" class="square3">
           Enter
         </div>
     </div>
     <div id="parent">
-        <div id="bottom-left" class="square">
+        <div id="bottom-left" class="square3">
           <div class="text-center">
             <img src="/assets/laugh.png" class="items">
             1 Tap
@@ -46,7 +53,7 @@
             2 Taps
           </div>
         </div>
-        <div id="bottom-right" class="square">
+        <div id="bottom-right" class="square3">
           <div class="text-center">
             <img src="/assets/sad.png" class="items">
             1 Tap

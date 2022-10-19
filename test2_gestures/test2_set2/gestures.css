@@ -4,6 +4,9 @@
 #timerExplanation {
   visibility: visible;
 }
+#timerExplanation_1 {
+  visibility: visible;
+}
 #timer {
   justify-content: right;
   text-align: right;

@@ -26,6 +26,7 @@ function angry() {
 function clicked() {
   document.getElementById("timerButton").style.display = "none";
   document.getElementById("timerExplanation").style.display = "none";
+  document.getElementById("timerExplanation_1").style.display = "none";
   document.body.style.visibility = "visible";
   document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Swipe to find the correct emoticon below`;
   executeTest();
@@ -243,7 +244,7 @@ slide.addEventListener("touchend", (e) => {
 function test() {
   console.log("this is in test");
     if (vibrationDone) {
-        if (buttonPressed == reactionNumber && testNo != 0) {
+        if (buttonPressed == reactionNumber + 1 && testNo != 0) {
             correct++;
         }
         testNo++;
@@ -276,7 +277,7 @@ function executeTest() {
         setTimeout(playVibration, 2000);
     }
     else {
-        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option1(set1->set2) Test1_set1 ${correct}\nRedirecting to set2`);
+        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Test2_set2 ${correct}\n`);
         window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
     }
 }
