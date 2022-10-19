@@ -1,0 +1,88 @@
+/* * {
+  border: thin red solid;
+} */
+body {
+  visibility: hidden;
+}
+#timerExplanation {
+  visibility: visible;
+}
+#timer {
+  justify-content: right;
+  text-align: right;
+  color: red;
+  margin-top: 0;
+  margin-bottom: -5%;
+}
+#timerButton {
+  z-index: 1;
+  visibility: visible;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 10vw;
+  justify-content: center;
+  width:100%;
+}
+
+.thumbnails {
+  width: 30px;
+  /* margin: 0 auto; */
+}
+
+table {
+  width: 100%;
+  margin: 0;
+} 
+
+td, th {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.images {
+  max-width:90%;
+}
+
+#selectNow {
+  text-align: center;
+  color: red;
+  
+}
+
+h1 {
+  text-align: center;
+  font-size:30px;
+  width:100%;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+  
