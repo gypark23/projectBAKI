@@ -70,7 +70,7 @@ function executeTest() {
     }
     else {
         alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option1(set1->set2) Test1_set1 ${correct}\nRedirecting to set2`);
-        window.location = "public/index.html";
+        window.location = "/public/index.html";
     }
 }
 
