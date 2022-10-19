@@ -5,7 +5,7 @@ const bottomRight = document.getElementById("bottom-right")
 
 var user_gesture = ""
 
-topLeft.addEventListener("touchend", e => {
+topLeft.addEventListener("touchstart", e => {
     e.preventDefault()
 
     user_gesture += "a"
@@ -16,7 +16,7 @@ topLeft.addEventListener("touchend", e => {
     // console.log("TL-Changed", e.changedTouches.length)
 })
 
-topRight.addEventListener("touchend", e => {
+topRight.addEventListener("touchstart", e => {
     e.preventDefault()
 
     user_gesture += ";"
