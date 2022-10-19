@@ -28,6 +28,7 @@ function clicked() {
   document.getElementById("timerExplanation").style.display = "none";
   document.body.style.visibility = "visible";
   document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+  executeTest();
 }
 
 
@@ -279,6 +280,3 @@ function executeTest() {
         window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
     }
 }
-
-
-document.addEventListener("DOMContentLoaded", executeTest());
