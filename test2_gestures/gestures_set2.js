@@ -1,21 +1,57 @@
-// 슬라이크 전체 크기(width 구하기)
+function like() {
+  navigator.vibrate([150]);
+  buttonPressed = true;
+}
+function love() {
+  navigator.vibrate([150, 100, 150]);
+  buttonPressed = true;
+}
+function laugh() {
+  navigator.vibrate([300, 100, 150, 100, 300]);
+  buttonPressed = true;
+}
+function care() {
+  navigator.vibrate([150, 100, 150, 100, 300, 100, 300]);
+  buttonPressed = true;
+}
+function sad() {
+  navigator.vibrate([300, 100, 300]);
+  buttonPressed = true;
+}
+function angry() {
+  navigator.vibrate([300, 100, 300, 100, 300, 100, 300]);
+  buttonPressed = true;
+}
+
+function clicked() {
+  document.getElementById("timerButton").style.display = "none";
+  document.getElementById("timerExplanation").style.display = "none";
+  document.body.style.visibility = "visible";
+  document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Submit the corresponding emoticon below by gestures`;
+}
+
+
+const map = [like, love, laugh, care, sad, angry];
+
+const totalTest = 12;
+var correct = 0;
+var reactionNumber = 0;
+var buttonPressed = -1;
+var input = 0;
+var testNo = 1;
+var firstRun = true;
+var vibrationDone = false;
+
+// Note: code inspired from https://devinus.tistory.com/47?category=983141
+
 const slide = document.querySelector(".slide");
 let slideWidth = slide.clientWidth;
-
-// 버튼 엘리먼트 선택하기
-const prevBtn = document.querySelector(".slide_prev_button");
-const nextBtn = document.querySelector(".slide_next_button");
-
-// 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
 let slideItems = document.querySelectorAll(".slide_item");
-// 현재 슬라이드 위치가 슬라이드 개수를 넘기지 않게 하기 위한 변수
 const maxSlide = slideItems.length;
-
-// 버튼 클릭할 때 마다 현재 슬라이드가 어디인지 알려주기 위한 변수
 let currSlide = 1;
-
-// 페이지네이션 생성
 const pagination = document.querySelector(".slide_pagination");
+
+let submitted = false;
 
 for (let i = 0; i < maxSlide; i++) {
   if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
@@ -23,26 +59,19 @@ for (let i = 0; i < maxSlide; i++) {
 }
 
 const paginationItems = document.querySelectorAll(".slide_pagination > li");
-
-// 무한 슬라이드를 위해 start, end 슬라이드 복사하기
 const startSlide = slideItems[0];
 const endSlide = slideItems[slideItems.length - 1];
-
-// 엘리먼트 생성
 const startElem = document.createElement(startSlide.tagName);
 const endElem = document.createElement(endSlide.tagName);
 
-// 엘리먼트에 클래스 적용 동일하게 하기
 endSlide.classList.forEach((c) => endElem.classList.add(c));
 endElem.innerHTML = endSlide.innerHTML;
 startSlide.classList.forEach((c) => startElem.classList.add(c));
 startElem.innerHTML = startSlide.innerHTML;
 
-// 각 복제한 엘리먼트를 각 위치에 추가하기
 slideItems[0].before(endElem);
 slideItems[slideItems.length - 1].after(startElem);
 
-// 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
 slideItems = document.querySelectorAll(".slide_item");
 let offset = slideWidth * currSlide;
 slideItems.forEach((i) => {
@@ -51,19 +80,14 @@ slideItems.forEach((i) => {
 
 function nextMove() {
   currSlide++;
-  // 마지막 슬라이드 이상으로 넘어가지 않게 하기 위해서
   if (currSlide <= maxSlide) {
-    // 슬라이드를 이동시키기 위한 offset 계산
     const offset = slideWidth * currSlide;
-    // 각 슬라이드 아이템의 left에 offset 적용
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
-    // 슬라이드 이동 시 현재 활성화된 pagination 변경
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   } else {
-    // 무한 슬라이드 기능 - currSlide 값만 변경해줘도 되지만 시각적으로 자연스럽게 하기 위해 아래 코드 작성
     currSlide = 0;
     let offset = slideWidth * currSlide;
     slideItems.forEach((i) => {
@@ -71,252 +95,186 @@ function nextMove() {
     });
     currSlide++;
     offset = slideWidth * currSlide;
-    // 각 슬라이드 아이템의 left에 offset 적용
-    // setTimeout을 사용하는 이유는 비동기 처리를 이용해 transition이 제대로 적용되게 하기 위함
+
     setTimeout(() => {
-      // 각 슬라이드 아이템의 left에 offset 적용
+      
       slideItems.forEach((i) => {
         i.setAttribute("style", `transition: ${0.15}s; left: ${-offset}px`);
       });
     }, 0);
-    // // 슬라이드 이동 시 현재 활성화된 pagination 변경
+
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   }
 }
 function prevMove() {
   currSlide--;
-  // 1번째 슬라이드 이하로 넘어가지 않게 하기 위해서
   if (currSlide > 0) {
-    // 슬라이드를 이동시키기 위한 offset 계산
     const offset = slideWidth * currSlide;
-    // 각 슬라이드 아이템의 left에 offset 적용
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
-    // 슬라이드 이동 시 현재 활성화된 pagination 변경
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   } else {
-    // 무한 슬라이드 기능 - currSlide 값만 변경해줘도 되지만 시각적으로 자연스럽게 하기 위해 아래 코드 작성
     currSlide = maxSlide + 1;
     let offset = slideWidth * currSlide;
-    // 각 슬라이드 아이템의 left에 offset 적용
     slideItems.forEach((i) => {
       i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
     });
     currSlide--;
     offset = slideWidth * currSlide;
     setTimeout(() => {
-      // 각 슬라이드 아이템의 left에 offset 적용
       slideItems.forEach((i) => {
-        // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
         i.setAttribute("style", `transition: ${0.15}s; left: ${-offset}px`);
       });
     }, 0);
-    // 슬라이드 이동 시 현재 활성화된 pagination 변경
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   }
 }
 
-// 버튼 엘리먼트에 클릭 이벤트 추가하기
-nextBtn.addEventListener("click", () => {
-  // 이후 버튼 누를 경우 현재 슬라이드를 변경
-  nextMove();
-});
-// 버튼 엘리먼트에 클릭 이벤트 추가하기
-prevBtn.addEventListener("click", () => {
-  // 이전 버튼 누를 경우 현재 슬라이드를 변경
-  prevMove();
-});
 
-// 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
 window.addEventListener("resize", () => {
   slideWidth = slide.clientWidth;
 });
 
-// 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
 for (let i = 0; i < maxSlide; i++) {
-  // 각 페이지네이션마다 클릭 이벤트 추가하기
+
   paginationItems[i].addEventListener("click", () => {
-    // 클릭한 페이지네이션에 따라 현재 슬라이드 변경해주기(currSlide는 시작 위치가 1이기 때문에 + 1)
+
     currSlide = i + 1;
-    // 슬라이드를 이동시키기 위한 offset 계산
+
     const offset = slideWidth * currSlide;
-    // 각 슬라이드 아이템의 left에 offset 적용
+
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
-    // 슬라이드 이동 시 현재 활성화된 pagination 변경
+
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   });
 }
 
-// 드래그(스와이프) 이벤트를 위한 변수 초기화
+
+// swiping part
 let startPoint = 0;
 let endPoint = 0;
+let startPointY = 0;
+let endPointY = 0;
 
-// PC 클릭 이벤트 (드래그)
 slide.addEventListener("mousedown", (e) => {
-  startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+  startPoint = e.pageX;
+  startPointY = e.pageY;
 });
 
 slide.addEventListener("mouseup", (e) => {
-  endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
-  if (startPoint < endPoint) {
-    // 마우스가 오른쪽으로 드래그 된 경우
-    prevMove();
-  } else if (startPoint > endPoint) {
-    // 마우스가 왼쪽으로 드래그 된 경우
-    nextMove();
+  endPoint = e.pageX;
+  endPointY = e.pageY;
+
+  //y moved more, vertical move
+  if (Math.abs(endPointY - startPointY) > Math.abs(endPoint - startPoint)) {
+    //submit
+    if (vibrationDone) {
+      console.log("submit");
+      buttonPressed = currSlide;
+      console.log(currSlide);
+      submitted = true;
+      while(currSlide != 1) prevMove();
+      test();
+
+    }
   }
+  //horizontal move, x changed more
+  else {
+    
+      if (startPoint < endPoint) {
+        prevMove();
+      } else if (startPoint > endPoint) {
+        nextMove();
+      }
+  }
+
+
 });
 
-// 모바일 터치 이벤트 (스와이프)
+//mobile touch event
 slide.addEventListener("touchstart", (e) => {
-  startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+  startPoint = e.touches[0].pageX;
+  startPointY = e.touches[0].pageY;
 });
 slide.addEventListener("touchend", (e) => {
-  endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
-  if (startPoint < endPoint) {
-    // 오른쪽으로 스와이프 된 경우
+  endPoint = e.changedTouches[0].pageX;
+  endPointY = e.changedTouches[0].pageY;
+  
+  
+  
+  //y moved more, vertical move
+  if (Math.abs(endPointY - startPointY) > Math.abs(endPoint - startPoint)) {
+    //submit
+    if (vibrationDone) {
+      console.log("submit");
+      buttonPressed = currSlide;
+      console.log(currSlide);
+      submitted = true;
+      while(currSlide != 1) prevMove();
+      test();
 
-    prevMove();
-  } else if (startPoint > endPoint) {
-    // 왼쪽으로 스와이프 된 경우
-
-    nextMove();
+    }
+  }
+  //horizontal move, x changed more
+  else {
+    
+      if (startPoint < endPoint) {
+        prevMove();
+      } else if (startPoint > endPoint) {
+        nextMove();
+      }
   }
 });
 
-/*
-const topLeft = document.getElementById("top-left")
-const topRight = document.getElementById("top-right")
-const bottomLeft = document.getElementById("bottom-left")
-const bottomRight = document.getElementById("bottom-right")
 
 
+function test() {
+  console.log("this is in test");
+    if (vibrationDone) {
+        if (buttonPressed == reactionNumber && testNo != 0) {
+            correct++;
+        }
+        testNo++;
+        buttonPressed = -1;
+        vibrationDone = false;
+        document.getElementById("selectNow").textContent = "Wait...";
+            document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
+            executeTest();
+    }
 
-var user_gesture = ""
+}
 
+function playVibration() {
+    map[reactionNumber]();
+    console.log("vibration done");
+    vibrationDone = true;
+    document.getElementById("selectNow").textContent = "You may select now!";
+}
 
-
-document.addEventListener("touchstart", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.createElement("div")
-        dot.classList.add("dot")
-        dot.style.top = `${touch.pageY}px`
-        dot.style.left = `${touch.pageX}px`
-
-        // console.log("x1:" + dot.style.left)
-        // console.log("y1:" + dot.style.top)
-
-        dot.id = touch.identifier
-        document.body.append(dot)
-    })
-})
-
-document.addEventListener("touchmove", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.getElementById(touch.identifier)
-        dot.style.top = `${touch.pageY}px`
-        dot.style.left = `${touch.pageX}px`
-    })
-})
-
-document.addEventListener("touchend", e => {
-    ;[...e.changedTouches].forEach(touch => {
-        const dot = document.getElementById(touch.identifier)
-
-        // console.log("x2:" + dot.style.left)
-        // console.log("y2:" + dot.style.top)
-
-        dot.remove()
-    })
-})
-*/
-
-
-
-
-// function like() {
-//     navigator.vibrate([150]);
-//     buttonPressed = true;
-// }
-// function love() {
-//     navigator.vibrate([150, 100, 150]);
-//     buttonPressed = true;
-// }
-// function laugh() {
-//     navigator.vibrate([300, 100, 150, 100, 300]);
-//     buttonPressed = true;
-// }
-// function care() {
-//     navigator.vibrate([150, 100, 150, 100, 300, 100, 300]);
-//     buttonPressed = true;
-// }
-// function sad() {
-//     navigator.vibrate([300, 100, 300]);
-//     buttonPressed = true;
-// }
-// function angry() {
-//     navigator.vibrate([300, 100, 300, 100, 300, 100, 300]);
-//     buttonPressed = true;
-// }
-
-// const map = [like, love, laugh, care, sad, angry];
-
-// const totalTest = 12;
-// var correct = 0;
-// var reactionNumber = 0;
-// var buttonPressed = -1;
-// var input = 0;
-// console.log("hello");
-// var testNo = 0;
-// var firstRun = true;
-// var vibrationDone = false;
-
-// function test(num) {
-//     buttonPressed = parseInt(num);
-//     if (vibrationDone) {
-//         if (buttonPressed == reactionNumber && testNo != 0) {
-//             correct++;
-//         }
-//         testNo++;
-//         buttonPressed = -1;
-//         vibrationDone = false;
-//         document.getElementById("selectNow").textContent = "Wait...";
-//             document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Select the correct emoticon below`;
-//             executeTest();
-//     }
-
-// }
-
-// function playVibration() {
-//     map[reactionNumber]();
-//     console.log("vibration done");
-//     vibrationDone = true;
-//     document.getElementById("selectNow").textContent = "You may select now!";
-// }
-// function executeTest() {
-//     if (firstRun && buttonPressed != -1) {
-//         vibrationDone = true;
-//         firstRun = false;
-//     }
-//     else if (testNo <= totalTest) {
-//         //random reaction number
-//         reactionNumber = Math.floor(Math.random() * 6);
-//         //wait 2 seconds to play the vibration
-//         console.log(`start${testNo} ${reactionNumber}`);
-//         setTimeout(playVibration, 2000);
-//     }
-//     else {
-//         alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option1(set1->set2) Test1_set1 ${correct}\nRedirecting to set2`);
-//         window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
-//     }
-// }
+function executeTest() {
+    if (firstRun && buttonPressed != -1) {
+        vibrationDone = true;
+        firstRun = false;
+    }
+    else if (testNo <= totalTest) {
+        //random reaction number
+        reactionNumber = Math.floor(Math.random() * 6);
+        //wait 2 seconds to play the vibration
+        console.log(`start${testNo} ${reactionNumber}`);
+        setTimeout(playVibration, 2000);
+    }
+    else {
+        alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to move on to the next experiment!\n\nFor BAKI: Option1(set1->set2) Test1_set1 ${correct}\nRedirecting to set2`);
+        window.location = "/test1_vibration/option1/test1_set2/test1_set2_instructions.html";
+    }
+}
 
 
-// document.addEventListener("DOMContentLoaded", executeTest());
+document.addEventListener("DOMContentLoaded", executeTest());
