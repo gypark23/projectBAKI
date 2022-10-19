@@ -71,7 +71,7 @@ function executeTest() {
     }
     else {
         alert(`Test done!\n\nSHOW THIS ALERT BOX BEFORE YOU MOVE ON SO WE CAN COLLECT DATA!\nPress OK to end the experiment!\n\nFor BAKI: Test1_set2 ${correct}\n`);
-        window.location = "public/index.html";
+        window.location = "/public/index.html";
     }
 }
 
