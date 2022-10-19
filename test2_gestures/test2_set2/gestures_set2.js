@@ -26,6 +26,7 @@ function angry() {
 function clicked() {
   document.getElementById("timerButton").style.display = "none";
   document.getElementById("timerExplanation").style.display = "none";
+  document.getElementById("timerExplanation_1").style.display = "none";
   document.body.style.visibility = "visible";
   document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Swipe to find the correct emoticon below`;
   executeTest();
@@ -243,7 +244,7 @@ slide.addEventListener("touchend", (e) => {
 function test() {
   console.log("this is in test");
     if (vibrationDone) {
-        if (buttonPressed == reactionNumber && testNo != 0) {
+        if (buttonPressed == reactionNumber + 1 && testNo != 0) {
             correct++;
         }
         testNo++;
