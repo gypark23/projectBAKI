@@ -70,7 +70,11 @@ topRight.addEventListener("touchstart", e => {
           }, 1000);
     }
     else {
-
+        elem = document.getElementById("inner_error");
+        elem.style.visibility = "visible";
+        setTimeout(() => {
+            elem.style.visibility= 'hidden';
+          }, 1000);
     }
 
     user_gesture = ""
