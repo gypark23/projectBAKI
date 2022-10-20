@@ -238,10 +238,10 @@ li {
     width:50%;
   }
 
-  .inner {
-    display:flex; 
-    justify-content:center;
-    position:absolute:
+  #inner {
+    position:absolute;
+    top:390px;
+    left:41%;
   }
 
   

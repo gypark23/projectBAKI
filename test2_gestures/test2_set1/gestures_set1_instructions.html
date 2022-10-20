@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-      <title>Gesture Set 1</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-      <link rel="stylesheet" href="gestures.css">
-  </head>
 
-  <body>
-    <h1 id = "timerExplanation">Press the button below to start the timer and read the instructions</h1>
-    <button id = "timerButton" onclick = javascript:clicked()>Click Here!</button>
-    <!-- 60 seconds, 1 minute-->
-    <h1 id = "timer">1:00</h1>
-    <h1>
-      Set 1: Participant Instructions
-    </h1>
+<head>
+  <title>Gesture Set 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <link rel="stylesheet" href="gestures.css">
+</head>
 
-    <p>
-      Each emoticon is associated with a corner of the screen and a sequence of taps in that corner. 
-    </p>
+<body>
+  <h1 id="timerExplanation">Press the button below to start the timer and read the instructions</h1>
+  <button id="timerButton" onclick=javascript:clicked()>Click Here!</button>
+  <!-- 60 seconds, 1 minute-->
+  <h1 id="timer">1:00</h1>
+  <h1>
+    Set 1: Participant Instructions
+  </h1>
 
-    <!-- <p id = selectNow>Wait...</p> -->
-    <hr>
+  <p>
+    Each emoticon is associated with a corner of the screen and a sequence of taps in that corner.
+  </p>
 
-    <div>
-      <div id="parent">
-        <div id="top-left" class="square3">
-          <div class="text-center">
-            <img src="/assets/like.png" class="items">
-            1 Tap
-          </div>
-            
-          <div class="text-center">
-            <img src="/assets/heart.png" class="items">
-            2 Taps
-          </div>
+  <!-- <p id = selectNow>Wait...</p> -->
+  <hr>
+
+  <div class="outer">
+    <!-- top -->
+    <div id="parent">
+      <div id="top-left" class="square3">
+        <div class="text-center">
+          <img src="/assets/like.png" class="items">
+          1 Tap
         </div>
 
-        <div id="top-right" class="square3">
-          Enter
+        <div class="text-center">
+          <img src="/assets/heart.png" class="items">
+          2 Taps
         </div>
-
-
-    </div class="outer">
-      <div id="parent">
-          <div id="bottom-left" class="square3">
-            <div class="text-center">
-              <img src="/assets/laugh.png" class="items">
-              1 Tap
-            </div>
-              
-            <div class="text-center">
-              <img src="/assets/care.png" class="items">
-              2 Taps
-            </div>
-          </div>
-          <div id="bottom-right" class="square3">
-            <div class="text-center">
-              <img src="/assets/sad.png" class="items">
-              1 Tap
-            </div>
-              
-            <div class="text-center">
-              <img src="/assets/angry.png" class="items">
-              2 Taps
-            </div>
-          </div>
       </div>
 
-      <div class="inner">
-        <img src="/assets/like.png" class="items">
-        <img src="/assets/heart.png" class="items">
-        <img src="/assets/laugh.png" class="items">
-        <img src="/assets/care.png" class="items">
-        <img src="/assets/sad.png" class="items">
-        <img src="/assets/angry.png" class="items">
+      <div id="top-right" class="square3">
+        Enter
       </div>
     </div>
-   
 
-  </body>
+    <div>
+      <img src="/assets/like.png" id="inner" class="items">
+      <img src="/assets/heart.png" id="inner" class="items">
+      <img src="/assets/laugh.png" id="inner" class="items">
+      <img src="/assets/care.png" id="inner" class="items">
+      <img src="/assets/sad.png" id="inner" class="items">
+      <img src="/assets/angry.png" id="inner" class="items">
+    </div>
+
+    <!-- bottom -->
+    <div id="parent">
+      <div id="bottom-left" class="square3">
+        <div class="text-center">
+          <img src="/assets/laugh.png" class="items">
+          1 Tap
+        </div>
+
+        <div class="text-center">
+          <img src="/assets/care.png" class="items">
+          2 Taps
+        </div>
+      </div>
+      <div id="bottom-right" class="square3">
+        <div class="text-center">
+          <img src="/assets/sad.png" class="items">
+          1 Tap
+        </div>
+
+        <div class="text-center">
+          <img src="/assets/angry.png" class="items">
+          2 Taps
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+
+</body>
+
 </html>
 
 <script src="gestures_set1_instructions.js"></script>
