@@ -6,6 +6,7 @@ const bottomRight = document.getElementById("bottom-right")
 function clicked() {
     document.getElementById("timerButton").style.display = "none";
     document.getElementById("timerExplanation").style.display = "none";
+    document.getElementById("timerExplanation_1").style.display = "none";
     document.body.style.visibility = "visible";
     document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap out the correct gesture below`;
     executeTest();
