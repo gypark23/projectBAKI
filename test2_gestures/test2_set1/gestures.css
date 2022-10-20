@@ -1,6 +1,9 @@
 /* * {
   border: thin red solid;
 } */
+.items_1 {
+  visibility: hidden;
+}
 #timerExplanation {
   visibility: visible;
 }
