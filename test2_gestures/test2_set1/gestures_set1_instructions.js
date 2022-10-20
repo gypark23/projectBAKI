@@ -8,6 +8,13 @@ function clicked() {
     setInterval(updateCounter, 1000);
 }
 
+const map = new Map();
+map.set("a", document.getElementById("inner_like"));
+map.set("aa", document.getElementById("inner_heart"));
+map.set("b", document.getElementById("inner_laugh"));
+map.set("bb", document.getElementById("inner_care"));
+map.set("c", document.getElementById("inner_sad"));
+map.set("cc", document.getElementById("inner_angry"));
 
 //60 seconds start from 59
 let time = 59;
@@ -44,12 +51,28 @@ topLeft.addEventListener("touchstart", e => {
     // console.log("TL-Changed", e.changedTouches.length)
 })
 
+function disappear(elem) {
+    elem.style.visibility = "hidden";
+}
+
+function doNothing() {
+    console.log("waiting");
+}
+
 topRight.addEventListener("touchstart", e => {
     e.preventDefault()
 
-    user_gesture += ";"
-    console.log({user_gesture})
-    test(user_gesture)
+    if(map.has(user_gesture)) {
+        elem = map.get(user_gesture)
+        elem.style.visibility = "visible";
+        setTimeout(() => {
+            elem.style.visibility= 'hidden';
+          }, 1000);
+    }
+    else {
+
+    }
+
     user_gesture = ""
     // console.log("TR-Touches", e.touches.length)
     // console.log("TR-Targets", e.targetTouches.length)
