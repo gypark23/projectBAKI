@@ -3,6 +3,9 @@
 } */
 .items_1 {
   visibility: hidden;
+  position:absolute;
+  top:390px;
+  left:41%;
 }
 #timerExplanation {
   visibility: visible;
