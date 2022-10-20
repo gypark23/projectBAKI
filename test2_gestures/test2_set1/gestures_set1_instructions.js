@@ -22,7 +22,7 @@ function updateCounter() {
   time--;
 
   if(time < 0) {
-    window.location = "/test1_vibration/test1_set2/test1_set2.html";
+    window.location = "/test2_gestures/test2_set1/gestures_set1.html";
   }
 }
 
