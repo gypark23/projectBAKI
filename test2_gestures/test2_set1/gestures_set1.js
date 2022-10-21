@@ -8,7 +8,7 @@ function clicked() {
     document.getElementById("timerExplanation").style.display = "none";
     document.getElementById("timerExplanation_1").style.display = "none";
     document.body.style.visibility = "visible";
-    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap out the correct gesture below`;
+    document.getElementById("testText").textContent = `Test ${testNo} of ${totalTest}: Tap the correct gesture below`;
     executeTest();
   }
 
@@ -150,10 +150,6 @@ function executeTest() {
         firstRun = false;
     }
     else if (testNo <= totalTest) {
-        if (testNo > 9) {
-            document.getElementById("testText").style.fontSize = "29.6px";
-        }
-
         //random reaction number
         reactionNumber = Math.floor(Math.random() * gesture_list.length);
         random_gesture = gesture_list[reactionNumber];
