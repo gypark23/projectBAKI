@@ -4,8 +4,9 @@
 .items_1 {
   visibility: hidden;
   position:absolute;
-  top:390px;
-  left:41%;
+  width:35%;
+  top:51%;
+  left:33%;
 }
 #timerExplanation {
   visibility: visible;
@@ -206,7 +207,7 @@ li {
     align-items: center;
     justify-content: center;
     border-style: solid;
-    padding: 47px;
+    padding: 42px;
     gap: 30px;
     width:50%;
   }
@@ -232,8 +233,8 @@ li {
     align-items: center;
     justify-content: center;
     border-style: solid;
-    padding:19px 0;
-    gap: 30px;
+    padding:18px 0;
+    gap: 25px;
     width:50%;
   }
 
@@ -253,7 +254,9 @@ li {
     left:41%;
   }
 
-  
+  .margin-bottom {
+    margin-bottom:0;
+  }
 
 
  
